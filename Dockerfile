@@ -31,7 +31,7 @@ RUN groupadd --gid ${GID} ${USER} \
 
 USER ${USER}
 
-RUN npm install --omit=dev \
+RUN RUN npm install --legacy-peer-deps || npm install --force 
     && rm -rf .npm
     # TODO: generate lockfiles for each package manager
     ## pnpm import \
